@@ -43,8 +43,6 @@ def SortByExchange(A):
             return A
     return A
 
-
-import time
 import timeit
 
 
@@ -64,46 +62,3 @@ for count in n:
     print("SortByExtraction", count, min(timeit.Timer(lambda: SortByExtraction(Sample)).repeat(repeat=20, number=1)))
     Sample = num[:count]
     print("SortByExchange", count, min(timeit.Timer(lambda: SortByExchange(Sample)).repeat(repeat=20, number=1)))
-
-
-
-
-a = '''
-n = [100, 500, 1000]
-for count in n:
-    Sample = num[:count]
-    fullTime = []
-    for i in range(11):
-        start_time = time.time_ns()
-        A = SortByCounting(Sample)
-        end_time = time.time_ns()
-        if i != 0:
-            fullTime.append(end_time - start_time)
-    print("SortByCounting", count, (max(fullTime) + min(fullTime)) / 2, (max(fullTime) + min(fullTime)) / 2 / 1000000000)
-    Sample = num[:count]
-    fullTime = []
-    for i in range(11):
-        start_time = time.time_ns()
-        A = SortByInclusion(Sample)
-        end_time = time.time_ns()
-        if i != 0:
-            fullTime.append(end_time - start_time)
-    print("SortByInclusion", count, (max(fullTime) + min(fullTime)) / 2, (max(fullTime) + min(fullTime)) / 2 / 1000000000)
-    Sample = num[:count]
-    fullTime = []
-    for i in range(11):
-        start_time = time.time_ns()
-        A = SortByExtraction(Sample)
-        end_time = time.time_ns()
-        if i != 0:
-            fullTime.append(end_time - start_time)
-    print("SortByExtraction", count, (max(fullTime) + min(fullTime)) / 2, (max(fullTime) + min(fullTime)) / 2 / 1000000000)
-    Sample = num[:count]
-    fullTime = []
-    for i in range(11):
-        start_time = time.time_ns()
-        A = SortByExchange(Sample)
-        end_time = time.time_ns()
-        if i != 0:
-            fullTime.append(end_time - start_time)
-    print("SortByExchange", count, (max(fullTime) + min(fullTime)) / 2, (max(fullTime) + min(fullTime)) / 2 / 1000000000)'''
